@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.amer.coronetravelguide.SplashScreen"
+        android:label="home_splash_screen"
+        tools:layout="@layout/registration_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_continent"
+            app:destination="@id/continent"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/splashScreen"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/continent"
+        android:name="com.amer.coronetravelguide.Continent"
+        android:label="@string/destinations"
+        tools:layout="@layout/continent_continent" >
+        <action
+            android:id="@+id/action_continent_to_country"
+            app:destination="@id/country"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/country"
+        android:name="com.amer.coronetravelguide.Country"
+        android:label="registration_registration"
+        tools:layout="@layout/continent_continent" >
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="continentId"
+            app:argType="string"
+            android:defaultValue="null" />
+    </fragment>
+    <activity
+        android:id="@+id/ads2"
+        android:name="com.amer.coronetravelguide.Ads"
+        android:label="ads_ads"
+        tools:layout="@layout/ads_ads" />
+
+
+</navigation>

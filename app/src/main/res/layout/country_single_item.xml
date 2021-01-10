@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="24dp"
+    android:layout_marginRight="24dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/image_radius"
+    android:orientation="vertical"
+
+    >
+
+
+    <ImageView
+        android:id="@+id/country_image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/place" />
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="left"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        >
+
+        <TextView
+            android:id="@+id/country_number"
+            style="@style/questions_list_single_item_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/country_name"
+            style="@style/questions_list_single_item_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jordan"
+            android:layout_gravity="center"
+            />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "428564258036",
+    "project_id": "corone-travel-guide",
+    "storage_bucket": "corone-travel-guide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428564258036:android:a87169c6b76cd3d31012a1",
+        "android_client_info": {
+          "package_name": "com.amer.coronetravelguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428564258036-vfmcao2rnp8043p6e42deu53cjcnddoh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8RzhQxmQjwnQXRIvspEaCgZpWKjAl8k0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428564258036-vfmcao2rnp8043p6e42deu53cjcnddoh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
