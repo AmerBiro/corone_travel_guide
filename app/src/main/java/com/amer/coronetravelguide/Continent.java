@@ -2,6 +2,7 @@ package com.amer.coronetravelguide;
 
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,12 @@ import com.amer.coronetravelguide.mvvm.ContinentListModel;
 import com.amer.coronetravelguide.mvvm.ContinentListViewModel;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -51,7 +57,8 @@ public class Continent extends Fragment implements ContinentListAdapter.OnContin
     private ContinentListAdapter adapter;
     private String continentListId;
 
-    private InterstitialAd mInterstitialAd;
+
+//    private InterstitialAd mInterstitialAd;
 
 
 
@@ -73,9 +80,36 @@ public class Continent extends Fragment implements ContinentListAdapter.OnContin
         adapter = new ContinentListAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        binding.adView1.loadAd(adRequest);
+        binding.adView2.loadAd(adRequest);
+        binding.adView3.loadAd(adRequest);
+
+        AdView adView1 = new AdView(getActivity());
+        adView1.setAdSize(AdSize.BANNER);
+        adView1.setAdUnitId("ca-app-pub-4985467669699847/3318502135");
+
+        AdView adView2 = new AdView(getActivity());
+        adView2.setAdSize(AdSize.BANNER);
+        adView2.setAdUnitId("ca-app-pub-4985467669699847/4789891120");
+
+        AdView adView3 = new AdView(getActivity());
+        adView3.setAdSize(AdSize.BANNER);
+        adView3.setAdUnitId("ca-app-pub-4985467669699847/3506204390");
+
+
         recyclerView.setAdapter(adapter);
-        mInterstitialAd = newInterstitialAd();
-        loadInterstitial();
+//        mInterstitialAd = newInterstitialAd();
+//        loadInterstitial();
+
+        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+
     }
 
     @Override
@@ -99,7 +133,7 @@ public class Continent extends Fragment implements ContinentListAdapter.OnContin
 
     @Override
     public void onItemClicked(int position) {
-        showInterstitial();
+//        showInterstitial();
         Log.d(TAG, "continentListOnItemClicked: " + position);
         ContinentDirections.ActionContinentToCountry action =
                 ContinentDirections.actionContinentToCountry();
@@ -113,44 +147,46 @@ public class Continent extends Fragment implements ContinentListAdapter.OnContin
 
     }
 
-    private InterstitialAd newInterstitialAd() {
-        InterstitialAd interstitialAd = new InterstitialAd(getActivity());
-        interstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-
-            }
-
-            @Override
-            public void onAdClosed() {
-
-            }
-        });
-        return interstitialAd;
-    }
-
-    private void loadInterstitial() {
-
-        AdRequest adRequest = new AdRequest.Builder()
-                .setRequestAgent("android_studio:ad_template").build();
-        mInterstitialAd.loadAd(adRequest);
-    }
-
-    private void showInterstitial() {
-        // Show the ad if it"s ready. Otherwise toast and reload the ad.
-        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        } else {
-            Toast.makeText(getActivity(), "Ad did not load", 0).show();
-
-        }
-    }
+//    private InterstitialAd newInterstitialAd() {
+//        InterstitialAd interstitialAd = new InterstitialAd(getActivity());
+//        interstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
+////        interstitialAd.setAdUnitId("ca-app-pub-4985467669699847/5041172569");
+//        interstitialAd.setAdListener(new AdListener() {
+//            @Override
+//            public void onAdLoaded() {
+//
+//            }
+//
+//            @Override
+//            public void onAdFailedToLoad(int errorCode) {
+//
+//            }
+//
+//            @Override
+//            public void onAdClosed() {
+//
+//            }
+//        });
+//        return interstitialAd;
+//    }
+//
+//    private void loadInterstitial() {
+//
+//        AdRequest adRequest = new AdRequest.Builder()
+//                .setRequestAgent("android_studio:ad_template").build();
+//        mInterstitialAd.loadAd(adRequest);
+//    }
+//
+//    private void showInterstitial() {
+//        // Show the ad if it"s ready. Otherwise toast and reload the ad.
+//        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+//            mInterstitialAd.show();
+//
+//        } else {
+//            Toast.makeText(getActivity(), "Ad did not load", 0).show();
+//
+//        }
+//    }
 
 
 }

@@ -21,6 +21,9 @@ import com.amer.coronetravelguide.mvvm.ContinentListModel;
 import com.amer.coronetravelguide.mvvm.ContinentListViewModel;
 import com.amer.coronetravelguide.mvvm.CountryListAdapter;
 import com.amer.coronetravelguide.mvvm.CountryListModel;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -77,6 +80,8 @@ public class Country extends Fragment implements CountryListAdapter.OnCountryLis
     private Boolean status = false;
     private ImageHandler handler;
 
+//    private AdView mAdView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = CountryCountryBinding.inflate(inflater, container, false);
@@ -92,6 +97,28 @@ public class Country extends Fragment implements CountryListAdapter.OnCountryLis
         firebaseFirestore = FirebaseFirestore.getInstance();
         recyclerViewSetup();
         handler = new ImageHandler();
+
+//        mAdView = binding.adView1;
+//        mAdView = binding.adView2;
+//        mAdView = binding.adView3;
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        binding.adView4.loadAd(adRequest);
+        binding.adView5.loadAd(adRequest);
+        binding.adView6.loadAd(adRequest);
+
+        AdView adView4 = new AdView(getActivity());
+        adView4.setAdSize(AdSize.BANNER);
+        adView4.setAdUnitId("ca-app-pub-4985467669699847/6698525706");
+
+        AdView adView5 = new AdView(getActivity());
+        adView5.setAdSize(AdSize.BANNER);
+        adView5.setAdUnitId("ca-app-pub-4985467669699847/6977711397");
+
+        AdView adView6 = new AdView(getActivity());
+        adView6.setAdSize(AdSize.BANNER);
+        adView6.setAdUnitId("ca-app-pub-4985467669699847/5719829414");
+
     }
 
 

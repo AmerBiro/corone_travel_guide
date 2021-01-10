@@ -45,7 +45,7 @@ public class SplashScreen extends Fragment {
         binding.status.setText("Loading ...");
 
         ///////
-//        MobileAds.initialize(getContext());
+        MobileAds.initialize(getContext());
 
     }
 

@@ -48,11 +48,6 @@
             app:argType="string"
             android:defaultValue="null" />
     </fragment>
-    <activity
-        android:id="@+id/ads2"
-        android:name="com.amer.coronetravelguide.Ads"
-        android:label="ads_ads"
-        tools:layout="@layout/ads_ads" />
 
 
 </navigation>
